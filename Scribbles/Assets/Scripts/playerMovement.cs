@@ -27,6 +27,7 @@ public class playerMovement : MonoBehaviour
                 horizontalInput = 1f;
         }
        
+        
         flipSprite();
 
         if(Keyboard.current.wKey.isPressed && !isJumping)
