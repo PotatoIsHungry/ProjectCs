@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     float horizontalInput;
-    float movementSpeed = 5f;
+    float movementSpeed = 6f;
     bool isFacingRight = false;
-    float jumpPower = 4f;
+    float jumpPower = 5f;
     bool isJumping = false;
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,19 +18,19 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         horizontalInput = 0;
-        if (Keyboard.current != null) 
+        horizontalInput = 0;
+        if (Keyboard.current != null)
         {
-            if (Keyboard.current.aKey.isPressed) 
+            if (Keyboard.current.aKey.isPressed)
                 horizontalInput = -1f;
-            if (Keyboard.current.dKey.isPressed) 
+            if (Keyboard.current.dKey.isPressed)
                 horizontalInput = 1f;
         }
-       
-        
+
+
         flipSprite();
 
-        if(Keyboard.current.wKey.isPressed && !isJumping)
+        if (Keyboard.current.wKey.isPressed && !isJumping)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isJumping = true;
@@ -40,12 +40,12 @@ public class playerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-      rb.linearVelocity = new Vector2(horizontalInput * movementSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(horizontalInput * movementSpeed, rb.linearVelocity.y);
     }
 
     void flipSprite()
     {
-        if((isFacingRight && horizontalInput < 0f) || (!isFacingRight && horizontalInput > 0f))
+        if ((isFacingRight && horizontalInput < 0f) || (!isFacingRight && horizontalInput > 0f))
         {
             isFacingRight = !isFacingRight;
             Vector3 ls = transform.localScale;
@@ -56,6 +56,10 @@ public class playerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isJumping = false;
+
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isJumping = false;
+        }
     }
 }
