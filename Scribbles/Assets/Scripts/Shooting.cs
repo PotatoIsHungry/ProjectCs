@@ -23,7 +23,6 @@ public class Shooting : MonoBehaviour
 
         float dir = transform.localScale.x;
         
-
          GameObject bullet = Instantiate(shootingItem, shootingPoint.position, shootingPoint.rotation);
          bullet.GetComponent<playerShooting>().SetDirection(dir);
     }
