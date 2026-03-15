@@ -30,7 +30,7 @@ public class playerMovement : MonoBehaviour
 
         flipSprite();
 
-        if (Keyboard.current.wKey.isPressed && !isJumping)
+        if (Keyboard.current.spaceKey.isPressed && !isJumping)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isJumping = true;
