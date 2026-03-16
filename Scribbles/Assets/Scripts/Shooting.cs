@@ -9,9 +9,16 @@ public class Shooting : MonoBehaviour
     public Transform shootingPoint;
     public bool canShoot = true;
 
+    public float shootCooldown = 0.5f;
+    private float cooldownTimer = 0f;
     private void Update()
     {
-        if (Keyboard.current.qKey.wasPressedThisFrame)
+        if (cooldownTimer > 0f)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        if (Keyboard.current.qKey.wasPressedThisFrame && cooldownTimer <= 0f)
         {
             Shoot();
         }
@@ -25,5 +32,7 @@ public class Shooting : MonoBehaviour
         
          GameObject bullet = Instantiate(shootingItem, shootingPoint.position, shootingPoint.rotation);
          bullet.GetComponent<playerShooting>().SetDirection(dir);
+
+         cooldownTimer = shootCooldown;
     }
 }
