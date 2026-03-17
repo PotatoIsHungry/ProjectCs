@@ -1,38 +1,38 @@
+using System.Data.Common;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
-public class playerShooting : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
-    private float speed = 3;
+    public GameObject shootingItem;
+    public Transform shootingPoint;
+    public bool canShoot = true;
 
-    private float direction = 1;
-    public int damage = 50;
-
-    public void SetDirection(float dir)
-    {
-        direction = dir;
-    }
-
+    public float shootCooldown = 0.5f;
+    private float cooldownTimer = 0f;
     private void Update()
     {
-        transform.Translate(Vector2.left * direction * speed * Time.deltaTime);
+        if (cooldownTimer > 0f)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        if (Keyboard.current.qKey.wasPressedThisFrame && cooldownTimer <= 0f)
+        {
+            Shoot();
+        }
     }
 
-
-    void OnTriggerEnter2D(Collider2D collision)
+    void Shoot()
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Bullet"))
-        {
-            return;
-        }
+        if (!canShoot) return;
 
+        float dir = transform.localScale.x;
+        
+         GameObject bullet = Instantiate(shootingItem, shootingPoint.position, shootingPoint.rotation);
+         bullet.GetComponent<playerShooting>().SetDirection(dir);
 
-        if (collision.GetComponent<ShootingAction>() is not null)
-        {
-            collision.GetComponent<ShootingAction>().Action();   
-        }
-
-        Destroy(gameObject);
+         cooldownTimer = shootCooldown;
     }
 }

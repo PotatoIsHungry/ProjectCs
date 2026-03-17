@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     float horizontalInput;
-    float movementSpeed = 6f;
+    float movementSpeed = 5f;
     bool isFacingRight = false;
-    float jumpPower = 5f;
+    float jumpPower = 4f;
     bool isJumping = false;
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
