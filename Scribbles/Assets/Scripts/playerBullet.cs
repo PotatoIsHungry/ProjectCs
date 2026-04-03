@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 
 public class playerShooting : MonoBehaviour
 {
-    private float speed = 3;
+    private float speed = 4f;
 
     private float direction = 1;
     private float rotationSpeed = 360f;

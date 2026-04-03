@@ -19,6 +19,7 @@ public class platformController : MonoBehaviour
         if (isOnPlatform && playerCollider != null && Keyboard.current.shiftKey.wasPressedThisFrame)
         {
             StartCoroutine(DisableCollision());
+            
         }
     }
 
