@@ -4,15 +4,17 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     float horizontalInput;
-    float movementSpeed = 5f;
+    float movementSpeed = 10f;
     bool isFacingRight = false;
-    float jumpPower = 4f;
+    float jumpPower = 23f;
     bool isJumping = false;
+    private float jumpTimer;
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 4f;
     }
 
     // Update is called once per frame
@@ -27,15 +29,25 @@ public class playerMovement : MonoBehaviour
                 horizontalInput = 1f;
         }
 
-
         flipSprite();
 
-        if (Keyboard.current.spaceKey.isPressed && !isJumping)
+        if ((Keyboard.current.spaceKey.isPressed || Keyboard.current.wKey.isPressed) && !isJumping)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
-            isJumping = true;
+            if (jumpTimer >= 0.95)
+            {
+                jumpTimer = 0;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
+                isJumping = true;
+            }
+
         }
 
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * .8f * Time.deltaTime;
+        }
+
+        jumpTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()

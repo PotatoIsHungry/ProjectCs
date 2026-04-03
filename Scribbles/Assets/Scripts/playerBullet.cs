@@ -9,7 +9,7 @@ public class playerShooting : MonoBehaviour
     private float direction = 1;
     private float rotationSpeed = 360f;
     public int damage = 50;
-
+    private float timer;
     public void SetDirection(float dir)
     {
         direction = dir;
@@ -19,8 +19,15 @@ public class playerShooting : MonoBehaviour
     {
         transform.Translate(Vector2.left * direction * speed * Time.deltaTime, Space.World);
 
-    // Rotation stays the same
-    transform.Rotate(0f, 0f, rotationSpeed * direction * Time.deltaTime);
+        timer += Time.deltaTime;
+
+        if (timer > 10)
+        {
+            Destroy(gameObject);
+        }
+
+        // Rotation stays the same
+        transform.Rotate(0f, 0f, rotationSpeed * direction * Time.deltaTime);
     }
 
 
@@ -34,7 +41,7 @@ public class playerShooting : MonoBehaviour
 
         if (collision.GetComponent<ShootingAction>() is not null)
         {
-            collision.GetComponent<ShootingAction>().Action();   
+            collision.GetComponent<ShootingAction>().Action();
         }
 
         Destroy(gameObject);
