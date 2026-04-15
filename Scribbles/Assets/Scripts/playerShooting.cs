@@ -18,7 +18,7 @@ public class Shooting : MonoBehaviour
             cooldownTimer -= Time.deltaTime;
         }
 
-        if (Keyboard.current.qKey.wasPressedThisFrame && cooldownTimer <= 0f)
+        if (Keyboard.current.hKey.wasPressedThisFrame && cooldownTimer <= 0f)
         {
             Shoot();
         }

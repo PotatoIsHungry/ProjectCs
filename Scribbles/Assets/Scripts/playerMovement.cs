@@ -5,31 +5,38 @@ public class playerMovement : MonoBehaviour
 {
     float horizontalInput;
     float movementSpeed = 10f;
-    bool isFacingRight = false;
     float jumpPower = 23f;
     bool isJumping = false;
     private float jumpTimer;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         rb.gravityScale = 4f;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         horizontalInput = 0;
+
         if (Keyboard.current != null)
         {
             if (Keyboard.current.aKey.isPressed)
                 horizontalInput = -1f;
+
             if (Keyboard.current.dKey.isPressed)
                 horizontalInput = 1f;
         }
-
         flipSprite();
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        
 
         if ((Keyboard.current.spaceKey.isPressed || Keyboard.current.wKey.isPressed) && !isJumping)
         {
@@ -57,12 +64,13 @@ public class playerMovement : MonoBehaviour
 
     void flipSprite()
     {
-        if ((isFacingRight && horizontalInput < 0f) || (!isFacingRight && horizontalInput > 0f))
+        if (horizontalInput > 0f)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 ls = transform.localScale;
-            ls.x = ls.x * -1f;
-            transform.localScale = ls;
+            spriteRenderer.flipX = true;
+        }
+        else if (horizontalInput < 0f)
+        {
+            spriteRenderer.flipX = false;
         }
     }
 
