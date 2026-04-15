@@ -28,11 +28,12 @@ public class Shooting : MonoBehaviour
     {
         if (!canShoot) return;
 
-        float dir = transform.localScale.x;
-        
-         GameObject bullet = Instantiate(shootingItem, shootingPoint.position, shootingPoint.rotation);
-         bullet.GetComponent<playerShooting>().SetDirection(dir);
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        float dir = sr.flipX ? -1f : 1f;
 
-         cooldownTimer = shootCooldown;
+        GameObject bullet = Instantiate(shootingItem, shootingPoint.position, shootingPoint.rotation);
+
+        bullet.GetComponent<playerShooting>().SetDirection(dir);
+        cooldownTimer = shootCooldown;
     }
 }

@@ -10,6 +10,7 @@ public class playerMovement : MonoBehaviour
     private float jumpTimer;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    public Transform shootingPoint;
 
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,7 +37,7 @@ public class playerMovement : MonoBehaviour
         }
         flipSprite();
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-        
+
 
         if ((Keyboard.current.spaceKey.isPressed || Keyboard.current.wKey.isPressed) && !isJumping)
         {
@@ -67,11 +68,29 @@ public class playerMovement : MonoBehaviour
         if (horizontalInput > 0f)
         {
             spriteRenderer.flipX = true;
+            SetShootingPointPosition(true);
         }
         else if (horizontalInput < 0f)
         {
             spriteRenderer.flipX = false;
+            SetShootingPointPosition(false);
         }
+    }
+
+    void SetShootingPointPosition(bool isFlipped)
+    {
+        Vector3 currentPos = shootingPoint.localPosition;
+
+        if (!isFlipped && currentPos.x > 0)
+        {
+            currentPos.x *= -1f;
+        }
+        else if (isFlipped && currentPos.x < 0)
+        {
+            currentPos.x *= -1f;
+        }
+
+        shootingPoint.localPosition = currentPos;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
