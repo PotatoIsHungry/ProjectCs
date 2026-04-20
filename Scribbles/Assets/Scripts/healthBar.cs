@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class healthBar : MonoBehaviour
 {
     private int health, maxHealth;
-    private float width = 480;
-    private float height = 80;
+    private float width = 1455;
+    private float height = 250;
 
     [SerializeField]
-    private RectTransform bar;
+    public RectTransform bar;
 
     public void SetMaxHealth(int maxHp)
     {

@@ -1,14 +1,16 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
-    
+
     public int health;
     private int maxHealth;
     [SerializeField]
-    private healthBar healthBar;
+    public healthBar healthBar;
+    public gameOver gameOver;
     void Start()
     {
         maxHealth = health;
@@ -20,17 +22,18 @@ public class playerHealth : MonoBehaviour
 
         if (Keyboard.current.jKey.wasPressedThisFrame)
         {
-            health-=10;
+            health -= 10;
         }
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
-            health+=10;
+            health += 10;
         }
 
         Console.Write(health);
         healthBar.SetHealth(health);
-        if(health <= 0)
+        if (health <= 0)
         {
+            gameOver.SetUp();
             Debug.Log("Died");
         }
     }
