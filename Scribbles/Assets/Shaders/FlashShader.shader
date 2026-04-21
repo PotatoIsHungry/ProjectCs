@@ -1,11 +1,13 @@
-Shader "Custom/SpriteFlash"
+Shader "Custom/SpriteEffects"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _FlashAmount ("Flash Amount", Range(0,1)) = 0
         _HitColor ("Hit Color", Color) = (1,0,0,1)
+        _GrayAmount ("Gray Amount", Range(0,1)) = 0
     }
+
     SubShader
     {
         Tags { "Queue"="Transparent" "RenderType"="Transparent" }
@@ -21,11 +23,22 @@ Shader "Custom/SpriteFlash"
 
             TEXTURE2D(_MainTex); SAMPLER(sampler_MainTex);
             float4 _MainTex_ST;
+
             float _FlashAmount;
             float4 _HitColor;
+            float _GrayAmount;
 
-            struct Attributes { float4 positionOS : POSITION; float2 uv : TEXCOORD0; };
-            struct Varyings  { float4 positionHCS : SV_POSITION; float2 uv : TEXCOORD0; };
+            struct Attributes
+            {
+                float4 positionOS : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct Varyings
+            {
+                float4 positionHCS : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
             Varyings vert(Attributes IN)
             {
@@ -38,7 +51,12 @@ Shader "Custom/SpriteFlash"
             half4 frag(Varyings IN) : SV_Target
             {
                 half4 col = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv);
+
                 col.rgb = lerp(col.rgb, _HitColor.rgb, _FlashAmount);
+
+                float gray = dot(col.rgb, float3(0.299, 0.587, 0.114));
+                col.rgb = lerp(col.rgb, gray.xxx, _GrayAmount);
+
                 return col;
             }
             ENDHLSL

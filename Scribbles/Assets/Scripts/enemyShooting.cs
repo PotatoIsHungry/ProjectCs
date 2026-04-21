@@ -24,7 +24,7 @@ public class enemyShooting : MonoBehaviour
     void Update()
     {
 
-        if(sceneName.Equals("Tutorial Scene"))
+        if(sceneName.Equals("Tutorial Scene") || sceneName.Equals("Test Scene"))
         return;
 
         float distance = Vector2.Distance(transform.position, player.transform.position);

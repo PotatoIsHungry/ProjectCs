@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ShootingAction : MonoBehaviour
 {
     public UnityEvent action;
-    private int maxHP = 200;
+    public int maxHP;
     private int currentHP;
     private int damage;
     private SpriteRenderer sr;
@@ -22,9 +22,10 @@ public class ShootingAction : MonoBehaviour
     }
     IEnumerator Flash()
     {
+        mat.SetFloat("_GrayAmount", 0f);
         mat.SetFloat("_FlashAmount", 1f);
         yield return new WaitForSeconds(0.2f);
-        mat.SetFloat("_FlashAmount", 0f);
+        mat.SetFloat("_FlashAmount", 0f);      
     }
     public void Action()
     {
