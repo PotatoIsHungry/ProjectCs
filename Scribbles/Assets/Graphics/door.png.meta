@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7627b836af76ff488209d885d2da766
+guid: 6dab44ca11e9d1747976d2be81e283ad
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemies_0
+      name: door_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 7
-        width: 492
-        height: 595
+        y: 140
+        width: 750
+        height: 1210
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,52 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a769623bcc5ee134684811267dd03684
-      internalID: -2147037641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies_1
-      rect:
-        serializedVersion: 2
-        x: 562
-        y: 30
-        width: 299
-        height: 600
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6977b31976538484a83bf4c8a46c91a2
-      internalID: 327356457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies_2
-      rect:
-        serializedVersion: 2
-        x: 946
-        y: 56
-        width: 424
-        height: 515
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c1a3119dfc1e714ebdbf27b30214ba8
-      internalID: -1942256099
+      spriteID: 61d2704a8659adc47b3af29e4dab9b8e
+      internalID: -1651237151
       vertices: []
       indices: 
       edges: []
@@ -179,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f7f9c2108e6c3b346a2a9d2252d2c299
+    spriteID: 3bc4ee66d78cdfa4ba4d0a78975a1419
     internalID: 0
     vertices: []
     indices: 
@@ -191,9 +147,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      enemies_0: -2147037641
-      enemies_1: 327356457
-      enemies_2: -1942256099
+      door_0: -1651237151
+      door_1: 300940146
+      door_2: 418095956
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
