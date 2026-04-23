@@ -41,7 +41,8 @@ public class playerMovement : MonoBehaviour
 
         if ((Keyboard.current.spaceKey.isPressed || Keyboard.current.wKey.isPressed) && !isJumping)
         {
-            if (jumpTimer >= 0.95)
+            
+            if (jumpTimer >= 0.91)
             {
                 jumpTimer = 0;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
