@@ -34,9 +34,9 @@ RectTransform:
   m_Father: {fileID: 2141421739289484015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 360}
-  m_SizeDelta: {x: -60.000008, y: -780}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 983, y: 878}
+  m_SizeDelta: {x: 1805.25, y: 394.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2737297610510757808
 CanvasRenderer:
@@ -66,8 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 6339e21992e69b240b2dfa4236ccf2b9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -137,7 +137,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_TargetDisplay: 0
 --- !u!114 &1982407040867757134
 MonoBehaviour:
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::dialogueManager
   dialoguePanel: {fileID: 1042196690456304839}
-  textSpeed: 0.2
+  textSpeed: 0.1
   dialogueBodyText: {fileID: 4511871403272277864}
 --- !u!1 &3700708579653885548
 GameObject:
@@ -228,8 +228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000064373016}
-  m_SizeDelta: {x: 1780.05, y: 256.16}
+  m_AnchoredPosition: {x: -22.84, y: -1.43}
+  m_SizeDelta: {x: 1614.48, y: 259.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8253718573298325644
 CanvasRenderer:

@@ -10,8 +10,8 @@ public class enemyShooting : MonoBehaviour
     private float timer;
     private float playerDistance = 35f;
 
- Scene scene;
- string sceneName;
+    Scene scene;
+    string sceneName;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,9 +24,8 @@ public class enemyShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(sceneName.Equals("Tutorial Scene") || sceneName.Equals("Test Scene") || sceneName.Equals("Curiosities Scene"))
-        return;
+        if (sceneName.Equals("tutorialScene") || sceneName.Equals("Test Scene") || sceneName.Equals("curiositiesScene"))
+            return;
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
 
@@ -40,9 +39,6 @@ public class enemyShooting : MonoBehaviour
                 shoot();
             }
         }
-
-
-
     }
 
     void shoot()

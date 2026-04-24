@@ -14,7 +14,7 @@ public class ShootingAction : MonoBehaviour
 
     void Start()
     {
-        damage = GameManager.Instance.playerDamage;
+        damage = GameManager.playerDamage;
         currentHP = maxHP;
         sr = GetComponent<SpriteRenderer>();
         mat = sr.material;

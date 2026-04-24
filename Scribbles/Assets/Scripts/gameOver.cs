@@ -15,6 +15,7 @@ public class gameOver : MonoBehaviour
 
     public void goToMainMenu()
     {
-        SceneManager.LoadScene("Menu Scene");
+        GameManager.lastSceneEntered = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("menuScene");
     }
 }

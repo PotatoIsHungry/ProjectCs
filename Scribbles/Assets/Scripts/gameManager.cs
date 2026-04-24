@@ -1,19 +1,10 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    public static GameManager Instance;
+    public static int playerDamage = 50;
 
-    public int playerDamage = 50;
-
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-            Destroy(gameObject);
-    }
+    public static string lastSceneExited = "menuScene";
+    public static string lastSceneEntered = "menuScene";
+    
 }
