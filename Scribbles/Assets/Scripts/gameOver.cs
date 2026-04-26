@@ -3,8 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class gameOver : MonoBehaviour
 {
+    public AudioSource audioDeathScrene;
     public void SetUp()
     {
+        audioDeathScrene.PlayOneShot(audioDeathScrene.clip);
         gameObject.SetActive(true);
     }
 

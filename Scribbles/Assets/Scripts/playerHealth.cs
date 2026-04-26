@@ -11,6 +11,7 @@ public class playerHealth : MonoBehaviour
     [SerializeField]
     public healthBar healthBar;
     public gameOver gameOver;
+    private bool died = false;
     void Start()
     {
         maxHealth = health;
@@ -33,8 +34,10 @@ public class playerHealth : MonoBehaviour
         healthBar.SetHealth(health);
         if (health <= 0)
         {
+            if(died) return;
             gameOver.SetUp();
             Debug.Log("Died");
+            died = true;
         }
     }
 }

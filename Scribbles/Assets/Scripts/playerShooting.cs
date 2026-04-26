@@ -8,6 +8,8 @@ public class Shooting : MonoBehaviour
     public GameObject shootingItem;
     public Transform shootingPoint;
     public bool canShoot = true;
+    public AudioSource m_AudioSource;
+
 
     public float shootCooldown = 0.5f;
     private float cooldownTimer = 0f;
@@ -34,6 +36,9 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(shootingItem, shootingPoint.position, shootingPoint.rotation);
 
         bullet.GetComponent<playerShooting>().SetDirection(dir);
+
+        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+
         cooldownTimer = shootCooldown;
     }
 }
