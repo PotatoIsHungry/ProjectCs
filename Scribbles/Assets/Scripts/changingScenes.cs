@@ -12,8 +12,10 @@ public class changingScenes : MonoBehaviour
     public string sceneName;
     public TMP_Text textToEnter;
     public string requiredLevel;
+    private Transform doorframe;
     void Start()
     {
+        doorframe = GetComponent<Transform>();
         GameManager.lastSceneEntered = SceneManager.GetActiveScene().name;
         textToEnter.enabled = false;
     }
@@ -24,7 +26,12 @@ public class changingScenes : MonoBehaviour
         if (playerInZone && Keyboard.current.pKey.isPressed)
         {
             GameManager.lastSceneExited = SceneManager.GetActiveScene().name;
-            Console.Write(GameManager.lastSceneExited);
+
+            if (SceneManager.GetActiveScene().name.Equals("mainScene"))
+            {
+                GameManager.position = new Vector3(doorframe.position.x, doorframe.position.y, 0);
+            }
+
             SceneManager.LoadScene(sceneName);
         }
     }
@@ -44,7 +51,7 @@ public class changingScenes : MonoBehaviour
             }
 
             textToEnter.enabled = true;
-        } 
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

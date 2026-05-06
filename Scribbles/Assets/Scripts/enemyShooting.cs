@@ -9,6 +9,7 @@ public class enemyShooting : MonoBehaviour
     private GameObject player;
     private float timer;
     private float playerDistance = 35f;
+    public float shootingTime;
 
     Scene scene;
     string sceneName;
@@ -33,7 +34,7 @@ public class enemyShooting : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > 1.5)
+            if (timer > shootingTime)
             {
                 timer = 0;
                 shoot();
