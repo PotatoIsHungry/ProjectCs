@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6603122607356654693}
   m_Layer: 0
   m_Name: EnemyType2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::enemyShooting
   bullet: {fileID: 6044240508288851613, guid: 2f65d0284ff237a4884a2b6d8ce4b568, type: 3}
   bulletPosition: {fileID: 6742658606730301580}
+  shootingTime: 1.5
 --- !u!114 &6603122607356654693
 MonoBehaviour:
   m_ObjectHideFlags: 0
