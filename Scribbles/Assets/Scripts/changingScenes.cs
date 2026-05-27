@@ -16,7 +16,6 @@ public class changingScenes : MonoBehaviour
     void Start()
     {
         doorframe = GetComponent<Transform>();
-        GameManager.lastSceneEntered = SceneManager.GetActiveScene().name;
         textToEnter.enabled = false;
     }
 
@@ -25,13 +24,16 @@ public class changingScenes : MonoBehaviour
     {
         if (playerInZone && Keyboard.current.pKey.isPressed)
         {
+            GameManager.completedScene = true;
             GameManager.lastSceneExited = SceneManager.GetActiveScene().name;
+            
 
             if (SceneManager.GetActiveScene().name.Equals("mainScene"))
             {
                 GameManager.position = new Vector3(doorframe.position.x, doorframe.position.y, 0);
             }
 
+            GameManager.lastSceneEntered = sceneName;
             SceneManager.LoadScene(sceneName);
         }
     }

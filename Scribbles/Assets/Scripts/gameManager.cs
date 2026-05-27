@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public static class GameManager
@@ -6,6 +7,7 @@ public static class GameManager
 
     public static string lastSceneExited = "menuScene";
     public static string lastSceneEntered = "menuScene";
+    public static bool completedScene = true;
 
     public static Vector2 position = new Vector2(78f, -1.7f);
     

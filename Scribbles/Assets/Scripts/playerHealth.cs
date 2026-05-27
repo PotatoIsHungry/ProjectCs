@@ -20,14 +20,10 @@ public class playerHealth : MonoBehaviour
 
     void Update()
     {
-
-        if (Keyboard.current.jKey.wasPressedThisFrame)
-        {
-            health -= 10;
-        }
+  
         if (Keyboard.current.kKey.wasPressedThisFrame)
         {
-            health += 10;
+            health = 0;
         }
 
         Console.Write(health);
@@ -36,8 +32,8 @@ public class playerHealth : MonoBehaviour
         {
             if(died) return;
             gameOver.SetUp();
-            Debug.Log("Died");
             died = true;
+            Time.timeScale = 0;
         }
     }
 }

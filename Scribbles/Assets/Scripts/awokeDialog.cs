@@ -14,9 +14,9 @@ public class awokeDialog : MonoBehaviour
     IEnumerator StartDialog()
     {
 
-        if (!lastScene.Equals(""))
+        if (GameManager.completedScene)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.7f);
             dialogueManager.Instance.StartDialogue(lastScene + "Lines");
         }
     }
