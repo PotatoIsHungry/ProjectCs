@@ -20,12 +20,7 @@ public class introController : MonoBehaviour
             animator.GetCurrentAnimatorStateInfo(0).length
         );
 
+        SaveSystem.LoadGame();
         SceneManager.LoadScene("menuScene");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

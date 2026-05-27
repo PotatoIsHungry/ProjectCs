@@ -74,7 +74,7 @@ public class dialogueManager : MonoBehaviour
         TextAsset jsonFile = Resources.Load<TextAsset>(resourcePath);
         if (jsonFile == null)
         {
-            Debug.LogError($"DialogueManager: No JSON found at Resources/{resourcePath}");
+            Debug.Log($"DialogueManager: No JSON found at Resources/{resourcePath}");
             return;
         }
         DialogueData data = JsonUtility.FromJson<DialogueData>(jsonFile.text);
