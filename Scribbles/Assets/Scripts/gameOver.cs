@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class gameOver : MonoBehaviour
@@ -6,6 +7,7 @@ public class gameOver : MonoBehaviour
     public AudioSource audioDeathScrene;
     public void SetUp()
     {
+        audioDeathScrene.volume = GameManager.SFXVolume;
         audioDeathScrene.PlayOneShot(audioDeathScrene.clip);
         gameObject.SetActive(true);
     }

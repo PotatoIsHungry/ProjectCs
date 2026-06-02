@@ -12,4 +12,7 @@ public class SaveData
 
     public float positionX;
     public float positionY;
+
+    public float SFXVolume;
+    public float MusicVolume;
 }

@@ -19,6 +19,9 @@ public static class SaveSystem
         data.positionX = GameManager.position.x;
         data.positionY = GameManager.position.y;
 
+        data.MusicVolume = GameManager.musicVolume;
+        data.SFXVolume = GameManager.SFXVolume;
+
         string json = JsonUtility.ToJson(data, true);
 
         File.WriteAllText(path, json);
